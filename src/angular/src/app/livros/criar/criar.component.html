@@ -1,0 +1,30 @@
+<form>
+    <h3>Criar Livro</h3>
+    <hr>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+      <label for="nomeDoLivro">Nome</label>
+      <input type="text" class="form-control" id="nomeDoLivro" name="nomeDoLivro" placeholder="Digite o nome do livro" [(ngModel)]="livro.nome">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="autorDoLivro">Autor</label>
+      <select class="custom-select" id="autorDoLivro" name="autorDoLivro" [(ngModel)]="autorSelecionado">
+        <option value="0">Selecione...</option>
+        <option *ngFor="let autor of autores" value="{{autor.id}}">{{autor.nome}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="anoDePublicacaoDoLivro">Ano de Publicação</label>
+      <input type="text" class="form-control" id="anoDePublicacaoDoLivro" name="anoDePublicacaoDoLivro" placeholder="1857" [(ngModel)]="livro.anoDePublicacao">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descricaoDoLivro">Descrição do Livro</label>
+    <textarea class="form-control" id="descricaoDoLivro" name="descricaoDoLivro" placeholder="Loren ipsum" rows="3" [(ngModel)]="livro.descricao"></textarea>
+  </div>
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-primary" (click)="criar()">Criar</button>
+    <button type="button" class="btn btn-secondary">Voltar</button>
+  </div>
+  {{ livro | json }}
+</form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Livro } from 'src/app/livro';
-import { LivrosService } from 'src/app/livros.service';
+import { Livro } from 'src/app/entities/livro';
+import { LivrosService } from 'src/app/services/livros.service';
 
 @Component({
   selector: 'app-listar',

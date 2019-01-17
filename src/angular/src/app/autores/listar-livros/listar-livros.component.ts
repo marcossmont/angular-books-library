@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { Autor } from 'src/app/autor';
-import { LivrosService } from 'src/app/livros.service';
-import { Livro } from 'src/app/livro';
+import { Autor } from 'src/app/entities/autor';
+import { LivrosService } from 'src/app/services/livros.service';
+import { Livro } from 'src/app/entities/livro';
 
 @Component({
   selector: 'listar-livros',
