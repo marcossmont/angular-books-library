@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Livro } from 'src/app/entities/livro';
-import { LivrosService } from 'src/app/services/livros.service';
-import { Autor } from 'src/app/entities/autor';
-import { AutoresService } from 'src/app/services/autores.service';
+import { Livro } from 'src/app/shared/entities/livro';
+import { LivrosService } from 'src/app/shared/services/livros.service';
+import { Autor } from 'src/app/shared/entities/autor';
+import { AutoresService } from 'src/app/shared/services/autores.service';
 import { Router } from "@angular/router"
+import { TextMaskModule } from 'angular2-text-mask'
+import { mascaras } from 'src/app/shared/mascaras'
+import { AlertasService } from 'src/app/shared/services/alertas.service';
 
 @Component({
   selector: 'app-criar',
   templateUrl: './criar.component.html',
-  styleUrls: ['./criar.component.css']
+  styleUrls: ['./criar.component.css'],
+
 })
 export class CriarComponent implements OnInit {
+
+  public mascaraAno  = mascaras.ano;
 
   public livro:Livro = new Livro();
   public autores:Autor[] = [];
@@ -18,7 +24,8 @@ export class CriarComponent implements OnInit {
 
   constructor(private livrosService:LivrosService, 
     private autoresService:AutoresService,
-    private router: Router) { }
+    private router: Router,
+    private alertasService: AlertasService) { }
 
   ngOnInit() {
     this.autoresService.listarAutores().subscribe(
@@ -34,7 +41,7 @@ export class CriarComponent implements OnInit {
 
     this.livrosService.criar(this.livro).subscribe(
       response => {
-        alert("salvo com sucesso.");
+        this.alertasService.adicionar("Livro adicionado com sucesso.")
         this.router.navigate(['/livros'])
       }
     );

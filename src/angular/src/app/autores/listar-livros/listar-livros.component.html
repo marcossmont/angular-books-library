@@ -1,19 +1,24 @@
-<p>
-  Livros de {{autor.nome}}
-</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Ano de Publicação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let livro of livros">
-      <th scope="row">{{livro.id}}</th>
-      <td>{{livro.nome}}</td>
-      <td>{{livro.anoDePublicacao}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">  
+    <h4>Livros de {{autor.nome}}</h4>
+    <hr>  
+  </div>
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Ano de Publicação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let livro of livros">
+          <th scope="row">{{livro.id}}</th>
+          <td>{{livro.nome}}</td>
+          <td>{{livro.anoDePublicacao}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

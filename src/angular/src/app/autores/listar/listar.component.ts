@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AutoresService } from 'src/app/services/autores.service';
-import { Autor } from 'src/app/entities/autor';
+import { AutoresService } from 'src/app/shared/services/autores.service';
+import { Autor } from 'src/app/shared/entities/autor';
 
 @Component({
   selector: 'app-listar',
