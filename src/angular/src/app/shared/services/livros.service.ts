@@ -14,9 +14,19 @@ export class LivrosService {
   public listarLivros(): Observable<Livro[]> {
     return this.http.get<Livro[]>(this.url);
   }
-
-  public criar(livro: any): any {
-     let promisse = this.http.post<Livro>(this.url, livro);
+  
+  public criar(livro: Livro): any {
+    let promisse = this.http.post<Livro>(this.url, livro);
     return promisse;
   }
+  
+  public editar(livro: Livro): any {
+    let promisse = this.http.put<Livro>(this.url, livro);
+    return promisse;;
+  }
+
+  public buscarPorId(id:Number): Observable<Livro> {
+    return this.http.get<Livro>(`${this.url}/${id}`);
+  }
+  
 }

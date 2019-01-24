@@ -1,51 +1,49 @@
 <form #livroForm="ngForm">
-    <h3>Criar Livro</h3>
-    <hr>
-    <div class="form-row">
-      <div class="form-group col-md-5">
-      <label for="nomeDoLivro">Nome</label>
-      <input type="text" class="form-control" id="nomeDoLivro" name="nomeDoLivro" placeholder="Digite o nome do livro" 
-        [(ngModel)]="livro.nome" required #nomeDoLivro="ngModel">
-      <div *ngIf="nomeDoLivro.errors && (nomeDoLivro.dirty || nomeDoLivro.touched)" class="alert alert-danger">
-        <div [hidden]="!nomeDoLivro.errors.required">
-          Nome é obrigatório!
-        </div>
-      </div>
-    </div>
+  <titulo titulo="Criar Livro"></titulo>
+  <div class="form-row">
     <div class="form-group col-md-5">
-      <label for="autorDoLivro">Autor</label>
-      <select class="custom-select" id="autorDoLivro" name="autorDoLivro" [(ngModel)]="autorSelecionado" 
-        required #autorDoLivro="ngModel">
-        <option value="">Selecione...</option>
-        <option *ngFor="let autor of autores" value="{{autor.id}}">{{autor.nome}}</option>
-      </select>
-      <div *ngIf="autorDoLivro.errors && (autorDoLivro.dirty || autorDoLivro.touched)" class="alert alert-danger">
-        <div [hidden]="!autorDoLivro.errors.required">
-          Autor é obrigatório!
-        </div>
-      </div>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="anoDePublicacaoDoLivro">Ano de Publicação</label>
-      <input type="text" class="form-control" id="anoDePublicacaoDoLivro" name="anoDePublicacao" placeholder="1857" 
-        [(ngModel)]="livro.anoDePublicacao" [textMask]="mascaraAno" required pattern="\d{4}" #anoDePublicacaoDoLivro="ngModel">
-      <div *ngIf="anoDePublicacaoDoLivro.errors && (anoDePublicacaoDoLivro.dirty || anoDePublicacaoDoLivro.touched)" class="alert alert-danger">
-        <div [hidden]="!anoDePublicacaoDoLivro.errors.required">
-          Ano de Publicação é obrigatório!
-        </div>
-        <div [hidden]="!anoDePublicacaoDoLivro.errors.pattern">
-          Ano de Publicação deve ser no formato com 4 dígitos!
-        </div>
+    <label for="nomeDoLivro">Nome</label>
+    <input type="text" class="form-control" id="nomeDoLivro" name="nomeDoLivro" placeholder="Digite o nome do livro" 
+      [(ngModel)]="livro.nome" required #nomeDoLivro="ngModel">
+    <div *ngIf="nomeDoLivro.errors && (nomeDoLivro.dirty || nomeDoLivro.touched)" class="alert alert-danger">
+      <div [hidden]="!nomeDoLivro.errors.required">
+        Nome é obrigatório!
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="descricaoDoLivro">Descrição do Livro</label>
-    <textarea class="form-control" id="descricaoDoLivro" name="descricaoDoLivro" placeholder="Loren ipsum" rows="3" [(ngModel)]="livro.descricao"></textarea>
+  <div class="form-group col-md-5">
+    <label for="autorDoLivro">Autor</label>
+    <select class="custom-select" id="autorDoLivro" name="autorDoLivro" [(ngModel)]="autorSelecionado" 
+      required #autorDoLivro="ngModel">
+      <option value="">Selecione...</option>
+      <option *ngFor="let autor of autores" value="{{autor.id}}">{{autor.nome}}</option>
+    </select>
+    <div *ngIf="autorDoLivro.errors && (autorDoLivro.dirty || autorDoLivro.touched)" class="alert alert-danger">
+      <div [hidden]="!autorDoLivro.errors.required">
+        Autor é obrigatório!
+      </div>
+    </div>
   </div>
-  <div class="btn-toolbar">
-    <button type="button" class="btn btn-primary" (click)="criar()" [disabled]="!livroForm.form.valid">Criar</button>
-    <button type="button" class="btn btn-secondary">Voltar</button>
+  <div class="form-group col-md-2">
+    <label for="anoDePublicacaoDoLivro">Ano de Publicação</label>
+    <input type="text" class="form-control" id="anoDePublicacaoDoLivro" name="anoDePublicacao" placeholder="1857" 
+      [(ngModel)]="livro.anoDePublicacao" [textMask]="mascaraAno" required pattern="\d{4}" #anoDePublicacaoDoLivro="ngModel">
+    <div *ngIf="anoDePublicacaoDoLivro.errors && (anoDePublicacaoDoLivro.dirty || anoDePublicacaoDoLivro.touched)" class="alert alert-danger">
+      <div [hidden]="!anoDePublicacaoDoLivro.errors.required">
+        Ano de Publicação é obrigatório!
+      </div>
+      <div [hidden]="!anoDePublicacaoDoLivro.errors.pattern">
+        Ano de Publicação deve ser no formato com 4 dígitos!
+      </div>
+    </div>
   </div>
-  {{ livro | json }}
+</div>
+<div class="form-group">
+  <label for="descricaoDoLivro">Descrição do Livro</label>
+  <textarea class="form-control" id="descricaoDoLivro" name="descricaoDoLivro" placeholder="Loren ipsum" rows="3" [(ngModel)]="livro.descricao"></textarea>
+</div>
+<div class="btn-toolbar">
+  <button type="button" class="btn btn-primary" (click)="criar()" [disabled]="!livroForm.form.valid">Criar</button>
+  <a class="btn btn-secondary" role="button" [routerLink]="['../../']">Voltar</a>
+</div>
 </form>

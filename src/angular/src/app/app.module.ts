@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AlertasComponent } from './alertas/alertas.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
