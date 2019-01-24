@@ -1,0 +1,8 @@
+<h3>{{title}}
+  <div *ngIf="actions" class="float-right">
+    <div *ngFor="let action of actions">
+      <a class="{{action.cssClass}}" [routerLink]="action.route" role="button">{{action.text}}</a> 
+    </div>
+  </div> 
+</h3> 
+<hr>  

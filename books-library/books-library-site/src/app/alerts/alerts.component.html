@@ -1,0 +1,5 @@
+<div id="toast-container" class="toast-top-right" *ngIf="alertsService.alerts.length">
+  <div class="toast toast-success" *ngFor="let alert of alertsService.alerts">
+    <div class="toast-message">{{ alert }}</div>
+  </div>
+</div>
